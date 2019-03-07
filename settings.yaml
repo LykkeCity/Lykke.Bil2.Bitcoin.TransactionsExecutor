@@ -27,19 +27,18 @@ Db:
         settings-key: Bitcoin-LogsConnString
         types:
             - AzureTableStorage
+Network:
+    settings-key: Bitcoin-Network
 Rpc:
     UserName:
-        settings-key: Bitcoin-TransactionsExecutor-RpcUserName
+        settings-key: Bitcoin-RpcUserName
     Password:
-        settings-key: Bitcoin-TransactionsExecutor-RpcPassword
+        settings-key: Bitcoin-RpcPassword
     Host:
-        settings-key: Bitcoin-TransactionsExecutor-RpcHost
+        settings-key: Bitcoin-RpcHost
 
 FeePerByte:
     settings-key: Bitcoin-TransactionsExecutor-FeePerByte
-
-WarningTimeoutFromLastBlock:
-    settings-key: Bitcoin-TransactionsExecutor-WarningTimeoutFromLastBlock
 
 WarningTimeoutFromLastBlock:
     settings-key: Bitcoin-TransactionsExecutor-NodeReleasesGithubUrl	
