@@ -1,0 +1,47 @@
+# Common settings
+
+MonitoringServiceClient:
+    MonitoringServiceUrl:
+        settings-key: MonitoringServiceUrl
+
+SlackNotifications:
+    AzureQueue:
+        ConnectionString:
+            settings-key: SlackNotificationsConnString
+            types:
+                - AzureTableStorage
+        QueueName:
+            settings-key: SlackQueueName
+
+# Transaction executor settings
+
+HealthMonitoringPeriod:
+    settings-key: Bitcoin-TransactionsExecutor-HealthMonitoringPeriod
+
+Db:
+    AzureDataConnString:
+        settings-key: Bitcoin-AzureDataConnString
+        types:
+            - AzureTableStorage
+    LogsConnString:
+        settings-key: Bitcoin-LogsConnString
+        types:
+            - AzureTableStorage
+Rpc:
+    UserName:
+        settings-key: Bitcoin-TransactionsExecutor-RpcUserName
+    Password:
+        settings-key: Bitcoin-TransactionsExecutor-RpcPassword
+    Host:
+        settings-key: Bitcoin-TransactionsExecutor-RpcHost
+
+FeePerByte:
+    settings-key: Bitcoin-TransactionsExecutor-FeePerByte
+
+WarningTimeoutFromLastBlock:
+    settings-key: Bitcoin-TransactionsExecutor-WarningTimeoutFromLastBlock
+
+WarningTimeoutFromLastBlock:
+    settings-key: Bitcoin-TransactionsExecutor-NodeReleasesGithubUrl	
+    types:
+        - Optional

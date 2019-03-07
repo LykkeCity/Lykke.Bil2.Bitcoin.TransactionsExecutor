@@ -1,2 +1,3 @@
-# Lykke.Bil2.Bitcoin.TransactionsExecutor
-Lykke.Bil2.Bitcoin.TransactionsExecutor
+# Bitcoin integration transaction executor
+
+This component of blockchain integration is intended for building and executing transactions.
