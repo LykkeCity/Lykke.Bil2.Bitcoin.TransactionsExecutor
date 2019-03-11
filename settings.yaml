@@ -44,6 +44,4 @@ WarningTimeoutFromLastBlock:
     settings-key: Bitcoin-TransactionsExecutor-WarningTimeoutFromLastBlock	
 	
 NodeReleasesGithubUrl:
-    settings-key: Bitcoin-TransactionsExecutor-NodeReleasesGithubUrl	
-	types:
-		- Optional
+    settings-key: Bitcoin-TransactionsExecutor-NodeReleasesGithubUrl

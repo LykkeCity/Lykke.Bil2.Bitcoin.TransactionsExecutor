@@ -16,8 +16,7 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Settings
         public TimeSpan WarningTimeoutFromLastBlock { get; set; }
        
         public int FeePerByte { get; set; } 
-
-        [Optional]
-        public string NodeReleasesGithubUrl { get; set; } = "https://api.github.com/repos/bitcoin/bitcoin/releases";
+        
+        public string NodeReleasesGithubUrl { get; set; };
     }
 }
