@@ -63,6 +63,8 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor
                         Network.GetNetwork(ctx.Settings.CurrentValue.Network),
                         ctx.Settings.CurrentValue.FeePerByte
                     );
+
+                //TODO Format provider
             });
         }
 
