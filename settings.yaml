@@ -41,7 +41,7 @@ FeePerByte:
     settings-key: Bitcoin-TransactionsExecutor-FeePerByte
 
 WarningTimeoutFromLastBlock:
-    settings-key: Bitcoin-TransactionsExecutor-WarningTimeoutFromLastBlock	
+    settings-key: Bitcoin-TransactionsExecutor-WarningTimeoutFromLastBlock
 	
 NodeReleasesGithubUrl:
     settings-key: Bitcoin-TransactionsExecutor-NodeReleasesGithubUrl
