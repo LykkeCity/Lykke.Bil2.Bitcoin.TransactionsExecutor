@@ -17,6 +17,6 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Settings
        
         public int FeePerByte { get; set; } 
         
-        public string NodeReleasesGithubUrl { get; set; };
+        public string NodeReleasesGithubUrl { get; set; }
     }
 }
