@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Lykke.Bil2.Contract.TransactionsExecutor.Requests;
 using NBitcoin;
+using Money = NBitcoin.Money;
 
 namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers
 {
@@ -20,9 +21,9 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers
         {
             foreach (var coin in coins.OrderBy(p => p.CoinNumber))
             {
-                if (coin.AssetId.ToString() != Constants.Bitcoin.AssetId)
+                if (coin.Asset.Id.ToString() != Constants.Bitcoin.AssetId)
                 {
-                    throw new ArgumentException($"Unable to send not {Constants.Bitcoin.AssetId} coin: {coin.AssetId}");
+                    throw new ArgumentException($"Unable to send not {Constants.Bitcoin.AssetId} coin: {coin.Asset.Id}");
                 }
                 var address = BlockchainAddressHelper.GetBitcoinAddress(coin.Address.ToString(), network);
                 if (address == null)
@@ -31,7 +32,7 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers
                 }
 
 
-                transactionBuilder.Send(address, new Money(coin.Value.ToDecimal(), MoneyUnit.BTC));
+                transactionBuilder.Send(address, new Money((int)coin.Value.Significand, MoneyUnit.Satoshi));
             }
 
             return transactionBuilder;
@@ -40,9 +41,9 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers
 
         private static ICoin ToBlockchainCoin(this CoinToSpend coin, Network network)
         {
-            if (coin.AssetId.ToString() != Constants.Bitcoin.AssetId)
+            if (coin.Asset.Id.ToString() != Constants.Bitcoin.AssetId)
             {
-                throw new ArgumentException($"Unable to send {Constants.Bitcoin.AssetId} coin: {coin.AssetId}", nameof(coin.AssetId));
+                throw new ArgumentException($"Unable to send {Constants.Bitcoin.AssetId} coin: {coin.Asset.Id}", nameof(coin.Asset.Id));
             }
 
             var address = BlockchainAddressHelper.GetBitcoinAddress(coin.Address.ToString(), network);
@@ -63,7 +64,7 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers
 
             var redeem = pubKey?.WitHash.ScriptPubKey;
             var result = new Coin(new OutPoint(uint256.Parse(coin.Coin.TransactionId), coin.Coin.CoinNumber),
-                new TxOut(Money.FromUnit(coin.Value.ToDecimal(), MoneyUnit.BTC), address.ScriptPubKey));
+                new TxOut(Money.FromUnit((int)coin.Value.Significand, MoneyUnit.Satoshi), address.ScriptPubKey));
 
             return redeem != null ? result.ToScriptCoin(redeem) : result;
         }
