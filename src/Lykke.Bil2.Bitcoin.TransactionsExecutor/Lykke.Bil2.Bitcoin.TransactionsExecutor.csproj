@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="2.4.1" />
-    <PackageReference Include="Lykke.Bil2.Sdk.TransactionsExecutor" Version="1.0.0-beta.3" />
+    <PackageReference Include="Lykke.Bil2.Sdk.TransactionsExecutor" Version="1.0.0-beta.13" />
     <PackageReference Include="NBitcoin" Version="4.1.1.86" />
   </ItemGroup>
 </Project>

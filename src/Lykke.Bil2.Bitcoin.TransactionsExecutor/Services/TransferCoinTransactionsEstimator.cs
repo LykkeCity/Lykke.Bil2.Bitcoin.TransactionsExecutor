@@ -1,12 +1,15 @@
 using System.Collections.Generic;
+using System.Numerics;
 using System.Threading.Tasks;
 using Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers;
 using Lykke.Bil2.Contract.Common;
 using Lykke.Bil2.Contract.TransactionsExecutor.Requests;
 using Lykke.Bil2.Contract.TransactionsExecutor.Responses;
 using Lykke.Bil2.Sdk.TransactionsExecutor.Services;
+using Lykke.Numerics;
 using NBitcoin;
 using Constants = Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers.Constants;
+using Money = NBitcoin.Money;
 
 namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services
 {
@@ -29,12 +32,10 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services
 
             var fee = txBuilder.EstimateFees(txBuilder.BuildTransaction(false), _feeRate);
 
-            return Task.FromResult(new EstimateTransactionResponse(new Dictionary<AssetId, CoinsAmount>()
+            return Task.FromResult(new EstimateTransactionResponse(new List<Fee>
             {
-                {
-                    new AssetId(Constants.Bitcoin.AssetId),
-                    CoinsAmount.FromDecimal(fee.ToUnit(MoneyUnit.BTC), Constants.Bitcoin.Accuracy)
-                }
+                new Fee(new Asset(new AssetId(Constants.Bitcoin.AssetId)),
+                    new UMoney(new BigInteger(fee.ToUnit(MoneyUnit.BTC)), Constants.Bitcoin.Accuracy))
             }));
         }
     }
