@@ -35,11 +35,17 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor
                         ctx.Settings.CurrentValue.WarningTimeoutFromLastBlock
                     );
 
-                options.IntegrationInfoServiceFactory = ctx =>
-                    new IntegrationInfoService
+                options.DependenciesInfoProviderFactory = ctx =>
+                    new DependencyInfoProvider
                     (
-                        ctx.Settings.CurrentValue.CreateRpcClient(),
-                        ctx.Settings.CurrentValue.NodeReleasesGithubUrl
+                        ctx.Settings.CurrentValue.NodeReleasesGithubUrl,
+                        ctx.Settings.CurrentValue.CreateRpcClient()
+                    );
+
+                options.BlockchainInfoProviderFactory = ctx =>
+                    new BlockchainInfoProvider
+                    (
+                        ctx.Settings.CurrentValue.CreateRpcClient()
                     );
 
                 options.TransactionBroadcasterFactory = ctx =>

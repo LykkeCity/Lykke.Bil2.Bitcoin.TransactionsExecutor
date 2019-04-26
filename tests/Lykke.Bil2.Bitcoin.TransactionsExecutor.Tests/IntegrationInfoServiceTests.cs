@@ -11,11 +11,11 @@ namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Tests
         [Fact]
         public async Task Can_Run()
         {
-            var serv = new IntegrationInfoService(RpcClientFactory.Create(), "https://api.github.com/repos/bitcoin/bitcoin/releases");
+            var serv = new DependencyInfoProvider("https://api.github.com/repos/bitcoin/bitcoin/releases", RpcClientFactory.Create());
 
             var res = await serv.GetInfoAsync();
 
-            Assert.True(res.Dependencies.ContainsKey("node"));
+            Assert.True(res.ContainsKey("node"));
         }
     }
 }

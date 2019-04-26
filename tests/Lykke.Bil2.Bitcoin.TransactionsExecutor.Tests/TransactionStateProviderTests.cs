@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Lykke.Bil2.Bitcoin.TransactionsExecutor.Services;
-using Lykke.Bil2.Contract.TransactionsExecutor;
+using Lykke.Bil2.SharedDomain;
 using NUnit.Framework;
 
 namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Tests

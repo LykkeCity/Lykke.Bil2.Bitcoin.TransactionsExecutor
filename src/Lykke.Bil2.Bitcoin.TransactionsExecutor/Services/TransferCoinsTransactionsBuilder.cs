@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using Lykke.Bil2.Bitcoin.TransactionsExecutor.Services.Helpers;
-using Lykke.Bil2.Contract.Common;
 using Lykke.Bil2.Contract.TransactionsExecutor.Requests;
 using Lykke.Bil2.Contract.TransactionsExecutor.Responses;
 using Lykke.Bil2.Sdk.TransactionsExecutor.Services;
+using Lykke.Bil2.SharedDomain;
 using NBitcoin;
 
 namespace Lykke.Bil2.Bitcoin.TransactionsExecutor.Services
