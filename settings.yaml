@@ -45,3 +45,9 @@ WarningTimeoutFromLastBlock:
     
 NodeReleasesGithubUrl:
     settings-key: Bitcoin-TransactionsExecutor-NodeReleasesGithubUrl 
+    
+HealthMonitoringPeriod:
+    settings-key: Bitcoin-TransactionsExecutor-HealthMonitoringPeriod 
+    
+DependenciesInfoCacheExpirationPeriod:
+    settings-key: Bitcoin-TransactionsExecutor-DependenciesInfoCacheExpirationPeriod
